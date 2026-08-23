@@ -2,16 +2,9 @@
 
 ## Project Overview
 
-HydroGuard AI is an edge-AI based predictive maintenance system for monitoring a DC water pump.
+HydroGuard AI is an edge-AI based predictive maintenance system for monitoring a DC water pump using Arduino UNO Q.
 
-The system monitors:
-
-- Pressure
-- Temperature
-- Current
-- Vibration
-
-The Arduino UNO Q acquires the sensor data and performs 1D-CNN based edge AI inference on its Linux MPU.
+The system monitors pressure, temperature, current and vibration to identify pump operating conditions.
 
 ## Hardware
 
@@ -22,34 +15,57 @@ The Arduino UNO Q acquires the sensor data and performs 1D-CNN based edge AI inf
 - INA291 Current Sensor
 - Piezoelectric Vibration Sensor
 - Water Pipes
-- 9V Power Supply
 
 ## Software
 
 - Arduino App Lab
 - Arduino Sketch
 - Python
-- 1D-CNN
-- ONNX Runtime
+- 1D-CNN AI
 - Digital Twin
 - CSV Data Logging
-- Dashboard
+- Monitoring Dashboard
 
-## System Architecture
+## Architecture
 
-Sensors → STM32 MCU → Arduino Bridge → UNO Q Linux MPU → 1D-CNN → Prediction
+Sensors
+→ STM32 MCU
+→ Arduino Bridge
+→ UNO Q Linux MPU
+→ 1D-CNN
+→ Pump Condition Prediction
 
-## AI Output
+## Sensors
 
-The 1D-CNN classifies pump condition as:
+### Pressure Sensor
+GZP6847A040KPP50 measures pump pressure.
+
+### Temperature Sensor
+DS18B20 measures pump temperature.
+
+### Current Sensor
+INA291 monitors pump current.
+
+### Vibration Sensor
+Piezoelectric vibration sensor monitors pump vibration.
+
+## AI
+
+A 1D-CNN model is used for pump condition analysis.
+
+The AI processes time-series sensor data and identifies:
 
 - HEALTHY
 - WARNING
 - FAULT
 
-## Data Flow
+## Digital Twin
 
-Sensor readings are collected continuously and stored as CSV data for training and analysis.
+The Digital Twin represents the real-time operating condition of the physical pump using the sensor measurements and AI prediction.
+
+## Data Logging
+
+Sensor readings are collected and stored in CSV format for analysis and machine-learning training.
 
 ## Code Structure
 
