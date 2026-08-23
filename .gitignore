@@ -1,0 +1,23 @@
+# Python virtual environments
+venv/
+tfvenv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment/secrets
+.env
+credentials.json
+
+# Local data
+data/raw/*.csv
+data/training/*.csv
+data/predictions/*.csv
+
+# ML model files
+models/*.onnx
+models/*.keras
+
+# Logs
+logs/
